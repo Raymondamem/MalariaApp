@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malaria App</title>
+  <style>
+    :root {
+      --page-1-color: rgb(70, 130, 180);
+      --page-2-color: tan;
+      --page-3-color: teal;
+      --page-4-color: slateblue;
+      --animate-speed: 3s;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.4;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    body>form {
+      display: black;
+      width: 100%;
+      height: fit-content;
+      overflow: inherit;
+    }
+    /* Page Colors */
+    #page-1 {
+      background: var(--page-1-color);
+      background-image: url(../assets/imgs/sailing-ship-g242beffc7_1920.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white !important;
+      text-shadow: .5px .5px 5px black;
+      box-shadow: inset -1px -1px 5px black, -1px -1px 5px black;
+    }
+    #page-2 {
+      background: var(--page-2-color);
+      background-image: url(../assets/imgs/mosquito-gcc54e63b8_1920.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      box-shadow: inset -1px -1px 5px black, -1px -1px 5px black;
+    }
+    #page-3 {
+      background: var(--page-3-color);
+      background-image: url(../assets/imgs/mosquito-g4c38a8a07_1280.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      box-shadow: inset -1px -1px 5px black, -1px -1px 5px black;
+    }
+    #page-4 {
+      background: var(--page-4-color);
+      background-image: url(../assets/imgs/mosquito-gcc54e63b8_1920.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      box-shadow: inset -1px -1px 5px black, -1px -1px 5px black;
+    }
+    #page-5 {
+      background: var(--page-4-color);
+      background-image: url(../assets/imgs/mosquito-gb6a6bee71_1920.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      box-shadow: inset -1px -1px 5px black, -1px -1px 5px black;
+    }
+    #page-6 {
+      background: var(--page-4-color);
+      background-image: url(../assets/imgs/mosquito-g4c38a8a07_1280.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      box-shadow: inset -1px -1px 5px black, -1px -1px 5px black;
+    }
+    .page {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 4rem;
+    }
+    .page h1 {
+      font-size: 4rem;
+      line-height: 1.2;
+      margin: 1rem;
+    }
+    .page p {
+      font-size: 1.3rem;
+    }
+    .page label {
+      cursor: pointer;
+    }
+    .page:first-child p {
+      text-align: center;
+    }
+    .btn {
+      display: inline-block;
+      border: none;
+      background: var(--primary-color);
+      box-shadow: inset -6px -6px 6px rgba(24, 39, 51, 0.85), -1px -1px 9px rgba(24, 39, 51, 0.85);
+      border-radius: 15px;
+      background: #f4f4f4;
+      color: #333;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+      transition: opacity 1s ease-in-out;
+      text-decoration: none;
+    }
+    .btn:hover,
+    .btn-dark {
+      background: #333;
+      color: #fff;
+    }
+    .btn-dark:hover {
+      background: #f4f4f4;
+      color: #333;
+    }
+    .btn:active {
+      background-color: rgba(9, 73, 92, 0.75);
+    }
+    /* Page Animation */
+    #page-1 h1 {
+      transform: translateY(-1200px);
+      animation: heading var(--animate-speed) forwards ease-in;
+    }
+    #page-1 p {
+      transform: translateX(-1800px);
+      animation: text var(--animate-speed) forwards ease-in 500ms;
+    }
+    .page>h3+div,
+    h3,
+    p {
+      text-shadow: -1px -1px 2px black, 1px 1px 2px black !important;
+      font-weight: bolder;
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+    .page>h3+div {
+      padding: 0 0 8rem 0;
+    }
+    .result {
+      display: block;
+      width: 100%;
+      padding: 3rem;
+      margin-top: 1rem;
+      background-color: burlywood;
+      color: brown;
+      font-family: sans-serif;
+      font-size: 2rem;
+      font-weight: bolder;
+    }
+    /* Keyframes */
+    @keyframes heading {
+      /* to {
+        transform: translateY(0);
+      } */
+      25% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-30px);
+      }
+
+      75% {
+        transform: translateY(5px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+    @keyframes text {
+      25% {
+        transform: translateX(0);
+      }
+
+      50% {
+        transform: translateX(-30px);
+      }
+
+      75% {
+        transform: translateX(5px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+    .modelOne {
+      padding: 1rem 5rem;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      width: 70vw;
+      height: 70vh;
+      flex-direction: column;
+      justify-content: space-evenly;
+      background: var(--page-1-color);
+      border: none;
+      border-radius: 15px;
+      z-index: 15;
+    }
+    .modelOne>div {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Page 1 (Intro) -->
+  <section id="page-1" class="page">
+    <h1>Welcome To Maleria Predictiontion App</h1>
+    <p>Here you will answer some simple quation which will help us know if you'er currently suffering from malaria,
+    </p>
+    <span><i> Or likely to have malaria.</i></span>
+    <div>
+      <a href="../index.html" class="btn">
+        Home <i class="fas fa-arrow-circle-down"></i>
+      </a>
+      <a href="#page-2" class="btn">
+        Next Page <i class="fas fa-arrow-circle-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Page 2 -->
+  <section id="page-2" class="page page-22">
+    <h3>We would like to know about your location where you stay.</h3>
+    <div>
+      <div class="form-check">
+        <input class="form-check-input answer" type="checkbox" id="rateOne" data-rate="10">
+        <label class="form-check-label" for="rateOne">
+          Do you stay in a tropical area(or have recently stayed there) and it is swampy or stayed in any area that is
+          swampy?
+        </label>
+      </div>
+    </div>
+    <div>
+      <a href="#page-1" class="btn btn-dark">
+        Prev Page <i class="fas fa-arrow-circle-up"></i>
+      </a>
+      <a href="#page-3" class="btn">
+        Next Page <i class="fas fa-arrow-circle-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Page 3 -->
+  <section id="page-3" class="page">
+    <h3>We would like to know if you don't usually use malaria repelant common methods such as: </h3>
+    <div>
+      <div class="form-check">
+        <input class="form-check-input answer" type="checkbox" id="rateTwo" data-rate="10">
+        <label class="form-check-label" for="rateTwo">
+          Mosquto net?
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input answer" type="checkbox" id="rateThree" data-rate="10">
+        <label class="form-check-label" for="rateThree">
+          Insecticides?
+        </label>
+      </div>
+    </div>
+    <div>
+      <a href="#page-2" class="btn btn-dark">
+        Prev Page <i class="fas fa-arrow-circle-up"></i>
+      </a>
+      <a href="#page-4" class="btn">
+        Next Page <i class="fas fa-arrow-circle-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Page 4 -->
+  <section id="page-4" class="page">
+    <h3>We would like to know if you where recentlly diognosed with malaria</h3>
+    <div>
+      <div class="form-check">
+        <input class="form-check-input answer" type="checkbox" id="rateFour" data-rate="40">
+        <label class="form-check-label" for="rateFour">
+          where you recentlly diognosed with malaria and you may in anyway did'nt finish your malaria treatment?
+        </label>
+      </div>
+    </div>
+    <div>
+      <a href="#page-3" class="btn btn-dark">
+        Prev Page <i class="fas fa-arrow-circle-up"></i>
+      </a>
+      <a href="#page-5" class="btn">
+        Next Page <i class="fas fa-arrow-circle-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Page 5 -->
+  <section id="page-5" class="page">
+    <h3>We would like to know your current state of health (these include feelings you've been experiencing).</h3>
+    <div>
+      <div class="form-check">
+        <input class="form-check-input answer" type="checkbox" id="rateFive" data-rate="10">
+        <label class="form-check-label" for="rateFive">
+          Are you currently feeling Or have recentlly felt chill (this involves the state of coldness in the musules
+          which is not neccessarly coursed by cold weather)?
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input answer" type="checkbox" id="rateSix" data-rate="10">
+        <label class="form-check-label" for="rateSix">
+          Are you currently feeling feverish or you recentlly surffered from such (this involves high temprature and
+          headache)?
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input answer" type="checkbox" id="rateSeven" data-rate="10">
+        <label class="form-check-label" for="rateSeven">
+          Are you currently feeling sweatness with your headache subside or recentlly felt so?
+        </label>
+      </div>
+    </div>
+    <div>
+      <a href="#page-4" class="btn btn-dark">
+        Prev Page <i class="fas fa-arrow-circle-up"></i>
+      </a>
+      <a href="#page-6" class="btn">
+        Next Page <i class="fas fa-arrow-circle-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Page 6 -->
+  <section id="page-6" class="page">
+    <h3></h3>
+    <div>
+      <div class="form-check">
+        <input class="form-check-input answer" type="checkbox" id="rateEight" data-rate="10">
+        <label class="form-check-label" for="rateEight">
+          Are you currently feeling weak and have less appatiet for meal, or have you recentlly surffered from such
+          feeling?
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input answer" type="checkbox" id="rateNine" data-rate="10">
+        <label class="form-check-label" for="rateNine">
+          Are you currently feeling Nousea (this is the feeling of wanting to vomiting), or have you recentlly
+          surffered
+          from such feeling?
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input answer" type="checkbox" id="rateTen" data-rate="10">
+        <label class="form-check-label" for="rateTen">
+          Are you currently having vomit or have you recentlly surffered from such feeling?
+        </label>
+      </div>
+    </div>
+    <div>
+      <a href="#page-5" class="btn btn-dark">
+        Prev Page <i class="fas fa-arrow-circle-up"></i>
+      </a>
+      <a href="../index.html" class="btn">
+        Home <i class="fas fa-arrow-circle-up"></i>
+      </a>
+      <a href="#page-1" id="seeResult" class="btn subBtn">See Result</a>
+    </div>
+  </section>
+
+  <section class="modelOne">
+    <h1>Your Result</h1>
+    <p id="result"></p>
+    <div class="reply"><a href="../index.html" class="btn" id="closeWindowTow">OK</a></div>
+  </section>
+
+  <script src="result.js"></script>
+</body>
+</html>

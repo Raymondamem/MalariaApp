@@ -1,0 +1,319 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-style: oblique;
+  line-height: 1.3;
+  color: black;
+  border: none;
+}
+
+html {
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+html body {
+  width: 100%;
+  height: inherit;
+}
+
+.container {
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 3rem;
+}
+
+#showcase {
+  background: rgba(13, 110, 139, 0.75);
+  color: #fff;
+  height: 100vh;
+  position: relative;
+}
+
+#showcase::before {
+  content: '';
+  background: url("../imgs/sailing-ship-g242beffc7_1920.jpg") no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#showcase .showcase-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+#showcase h1 {
+  font-size: 4rem;
+  color: #fff;
+}
+
+#showcase p {
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: rgba(13, 110, 139, 0.75);
+  -webkit-box-shadow: inset -6px -6px 6px rgba(24, 39, 51, 0.85), -1px -1px 9px rgba(24, 39, 51, 0.85);
+          box-shadow: inset -6px -6px 6px rgba(24, 39, 51, 0.85), -1px -1px 9px rgba(24, 39, 51, 0.85);
+  border-radius: 15px;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: white;
+}
+
+.btn:active {
+  background-color: rgba(9, 73, 92, 0.75);
+}
+
+/* ////////////////////////Menu////////////////////// */
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* Hamburger Line */
+  /* Toggler Animation */
+  /* Rotate On Hover When Checked */
+  /* Show Menu */
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  background: rgba(13, 110, 139, 0.75);
+  -webkit-box-shadow: inset -6px -6px 6px rgba(24, 39, 51, 0.85), -6px -6px 9px rgba(24, 39, 51, 0.85);
+          box-shadow: inset -6px -6px 6px rgba(24, 39, 51, 0.85), -6px -6px 9px rgba(24, 39, 51, 0.85);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 0 0 25px 0;
+}
+
+.menu-wrap .hamburger > div {
+  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  /* Hamburger Lines - Top & Bottom */
+  /* Moves Line Down */
+}
+
+.menu-wrap .hamburger > div::before, .menu-wrap .hamburger > div::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+.menu-wrap .hamburger > div::after {
+  top: 10px;
+}
+
+.menu-wrap .toggler:checked + .hamburger > div {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  /* Turns Lines Into X */
+}
+
+.menu-wrap .toggler:checked + .hamburger > div:before, .menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
+}
+
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition-duration: 0.75s;
+          transition-duration: 0.75s;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  -webkit-transition: opacity 0.4s ease 0.4s;
+  transition: opacity 0.4s ease 0.4s;
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: rgba(24, 39, 51, 0.85);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  width: calc(100vw / 3);
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  width: 100%;
+  list-style: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+  width: 90%;
+  margin: auto;
+  color: inherit;
+  text-decoration: none;
+  -webkit-transition: color 0.4s ease;
+  transition: color 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li > a:hover {
+  color: rgba(229, 148, 0, 0.9);
+}
+
+#aboutCls {
+  background-color: rgba(13, 110, 139, 0.75);
+  padding: 5rem 0 0 0;
+}
+
+#aboutCls * {
+  color: white !important;
+  font-family: cursive;
+  font-style: italic;
+}
+
+.Abtn {
+  display: inline-block;
+  border: none;
+  background: var(--primary-color);
+  -webkit-box-shadow: inset -6px -6px 6px rgba(24, 39, 51, 0.85), -1px -1px 9px rgba(24, 39, 51, 0.85);
+          box-shadow: inset -6px -6px 6px rgba(24, 39, 51, 0.85), -1px -1px 9px rgba(24, 39, 51, 0.85);
+  border-radius: 15px;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  text-decoration: none;
+}
+
+.Abtn:active {
+  background-color: rgba(9, 73, 92, 0.75);
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaria App</title>
+    <style>
+        :root {
+            --page-1-color: rgb(70, 130, 180);
+            --page-2-color: tan;
+            --page-3-color: teal;
+            --page-4-color: slateblue;
+            --animate-speed: 3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--page-1-color);
+            display: block;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .btn {
+            display: inline-block;
+            border: none;
+            background: var(--primary-color);
+            box-shadow: inset -6px -6px 6px rgba(24, 39, 51, 0.85), -1px -1px 9px rgba(24, 39, 51, 0.85);
+            border-radius: 15px;
+            background: #f4f4f4;
+            color: #333;
+            padding: 0.75rem 1.5rem;
+            margin-top: 1rem;
+            transition: opacity 1s ease-in-out;
+            text-decoration: none;
+        }
+
+        .btn:hover,
+        .btn-dark {
+            background: #333;
+            color: #fff;
+        }
+
+        .btn-dark:hover {
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        .btn:active {
+            background-color: rgba(9, 73, 92, 0.75);
+        }
+
+        h1+div+div {
+            display: block;
+            width: 100%;
+            height: fit-content;
+        }
+
+        ul {
+            width: 100%;
+            height: fit-content;
+            list-style: none;
+            padding-inline-start: 0 !important;
+            margin-top: 1rem;
+        }
+
+        .liCls {
+            display: block;
+            width: 100%;
+            height: fit-content;
+            background-color: var(rgba(9, 73, 92, 0.75));
+            box-shadow: inset -6px -6px 6px rgba(24, 39, 51, 0.85), -1px -1px 9px rgba(24, 39, 51, 0.85);
+            padding: .5rem;
+            margin: .3rem 0;
+            color: white;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Malaria Result History</h1>
+    <div>
+        <a href="../index.html" class="btn" id="closeWindowTow">Home</a>
+        <a href="#" class="btn" id="loadHistorys">Load Historys</a>
+    </div>
+    <div>
+        <ul id="historyResults">
+        </ul>
+    </div>
+    <script src="history.js"></script>
+</body>
+
+</html>
